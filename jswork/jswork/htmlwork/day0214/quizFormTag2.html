@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: "Nanum Gothic", sans-serif;
+            font-size: 20px;
+        }
+       
+        th.td{
+            border: 1px solid gray;
+        }
+        #result{
+            font-family: "Nanum Gothic", sans-serif;
+            width: 450px;
+            height: 200px;
+            border: 2px solid gray;
+            margin-top: 20px;
+            padding: 20px 20px;
+            font-size: 28px;
+        }
+    </style>
+     <script>
+        window.onload=function(){
+
+            document.getElementById("btnResult").onclick=function(){
+
+                var s ="";
+                s="이름: "+ document.getElementById("name").value+"<br>";
+                s+="비밀번호: "+ document.getElementById("pass").value+"<br>";
+
+                s+="혈액형: "+frm.blood.value+"<br>"
+
+            //  s+="가능언어: "+frm.lang.value+"<br>";
+
+            console.log(frm.lang.length); // lang의 갯수
+
+            // for문
+            var lg="";
+            for(var i =0; i< frm.lang.length; i++){
+                //체크박스 선택된 경우에만 value값을 얻어야함
+                if(frm.lang[i].checked){  //체크일경우 true, 아닐경우 false
+                    lg+="["+frm.lang[i].value+"]";
+
+                }
+            }
+                s+="가능언어: "+ (lg.length==0?"가능언어없음":lg)+"<br>";
+
+                s+="입사일자: "+ document.getElementById("ipsa").value+"<br>";
+
+                document.getElementById("result").innerHTML=s;
+            }
+        }
+                </script>
+</head>
+<body>
+    <form action="#" name="frm">
+        <table class="table table-bordered" style="width: 400px;">
+        <caption><b>폼태그 출력 과제 개인 정보</b></caption>
+        <tr class="table-primary">
+            <th>이름</th>
+            <td>
+                <input type="text" id="name" size="10" placeholder="이름" class="form-control" style="width: 120px;">
+            </td>
+        </tr>
+        <tr class="table-info">
+            <th>비밀번호</th>
+            <td>
+                <input type="password" id="pass" size="12" placeholder="비밀번호" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <th>혈액형</th>
+            <td class="form-control">
+                <input type="radio" name="blood" value="A형">A형
+                <input type="radio" name="blood" value="B형">B형
+                <input type="radio" name="blood" value="O형">O형
+                <input type="radio" name="blood" value="AB형">AB형 
+            </td>
+        </tr>
+        <tr>
+            <th>가능언어</th>
+            <td>
+                <input type="checkbox" name="lang" value="C언어">C언어
+                <input type="checkbox" name="lang" value="JAVA">JAVA
+                <input type="checkbox" name="lang" value="Jquery">Jquery
+                <input type="checkbox" name="lang" value="Spring">Spring
+            </td>
+        </tr>
+        <tr>
+            <th>입사일자</th>
+            <td>
+                <input type="date" value="2022-01-01" id="ipsa">
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <input type="button" id="btnResult" value="결과출력" class="btn btn-outline-primary">
+            </td>
+        </tr>
+    </table>
+   </form>
+
+   <div id="result">결과출력</div>
+
+</body>
+</html>

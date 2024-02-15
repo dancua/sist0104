@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("안녕 재석이가 자바스크립트 수업을 듣는중<br>");
+        document.write("안녕 명수가 자바스크립트 수업을 듣는중<br>");
+        document.write("안녕 홍철이가 자바스크립트 수업을 듣는중<br>");
+
+        function showName(name) {
+            document.write("안녕" + name + "이가 자바스크립트 수업을 듣는중입니다.<br>")
+        }
+            showName("영칠");
+            showName("영식");
+            showName("영호");
+        
+    </script>
+
+    <script>
+        // 안녕하세요 영식님의 나이는 22세입니다.
+        // 안녕하세요 영철님의 나이는 26세입니다.
+        // 안녕하세요 영호님의 나이는 28세입니다.
+
+        function showName2(name,age) {
+            document.write("안녕하세요" + name +"님의 나이는"+ age + "세 입니다<br>")
+        }
+        showName2("영식",22);
+        showName2("영철",26);
+        showName2("영호",28);
+
+    </script>
+</body>
+</html>
