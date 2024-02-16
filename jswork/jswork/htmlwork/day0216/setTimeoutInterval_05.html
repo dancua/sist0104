@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #photo{
+            position: relative;
+            left: 100px;
+            top: 20px;
+
+        }
+        #time
+        {
+            font-size: 2em;
+            margin-left: 100px;
+            font-weight: bold;
+        }
+        #myimg{position: relative}
+    </style>
+</head>
+<body>
+    <img src="../image/만화이미지/01.png">
+    <script>
+        var photo = document.querySelector("#photo");
+
+        setTimeou(function(){
+            photo.style.left="500px";
+            photo.style.top="200px";
+            photo.style.width="400px";
+        },3000); //3초 뒤 함수호출
+    </script>
+
+    <h2>setTimeout & setInterval 에 대한 공부</h2>
+    <div i="time"></div>
+    <script>
+        writeTime();
+
+        function writeTime(){
+            var date = new Date();
+            var h = date.getHours();
+            var m = date.getMinutes();
+            var s = date.getSeconds();
+
+            var time = h+":"+m+":"+(s<10?"0"+s:s);
+
+            document.write(time);
+        }
+    </script>
+
+    <hr>
+    <img src="../image/jquery_img/01.png">
+
+
+    <br><br>
+    <button type="button" id="btngo" class="btn btn-info">Go!</buttont>
+    <button type="button" id="btnstop" class="btn btn-info">Stop!</button>
+    
+    <script>
+        window.onload=function(e){
+            console.log(e.keyCode);
+        }
+
+        //go버튼 누르면 
+
+        var myimg;
+        var xpos =0;
+        var ms = 100;
+        var inter;
+
+        myimg = document.getElementById("myimg");
+
+        document.getElementById("btngo").onclick = function() {
+            setInterval(function(){
+                myimg.style.left = xpos+"px";
+                xpos += 10;
+            },ms);
+        }
+
+        document.getElementById("btnstop").onclick=function(){
+
+            clearInterval(inter); //setInterval 멈추게하는거
+        }
+    </script>
+</body>
+</html>
