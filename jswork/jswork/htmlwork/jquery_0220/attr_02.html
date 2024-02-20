@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+
+            //1.h3>b 태그 글자색을 green으로 변경하고 배경색을 #ffddff로 변경
+            $("h3").css("color","green")
+            $("h3").css("background-color","#ffddff")
+
+            $("h3>b").css({
+                "color" : "green",
+                "background-color" : "#ffddff"
+            })
+            //2.모든  h3 너비 400px border 2px inset orange margin bottom 10px로 변경
+            $("h3>b").css({
+                "width": "400px",
+                "border":"2px inset orange",
+                "margin-bottom":"10px"
+            })
+
+            //3.모든 span 글꼴을  Dongle로 변경하고 글자색 purple로 변경
+            $("h3>span").css({
+                "color":"purple" 
+            })
+
+
+            //4.모든 b태그 클릭하면 b태그의 글꼴을 가져와서 h2태그에 넣기
+            $("b").hover("")
+
+            // 이미지에 해당 이미지 나타내기
+            $("h3>b").click(function(){
+                var fname=$(this).text();
+
+                $("h2").text(fname);
+
+                var imgName=$(this).next().next().text();
+
+                $("img.photo").attr("src",imgName);
+            })
+
+        })
+    </script>
+</head>
+<body>
+    <h3>
+        <b>에그볶음밥</b>
+        <br>
+        <span>../image/Food/6.jpg</span>
+    </h3>
+    <hr>
+    <h3>
+        <b>망고빙수</b>
+        <br>
+        <span>../image/Food/11.jpg</span>
+    </h3>
+    <hr>
+    <h3>
+        <b>순두부찌개</b>
+        <br>
+        <span>../image/Food/12.jpg</span>
+    </h3>
+    <hr>
+
+    <img src="" class="photo">
+    <h2></h2>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #photo{
+            width: 400px;
+            height: 460px;
+            border: 10px groove gray;
+        }
+        .msg{
+            font-family: 'Gaegu';
+            font-size: 30px;
+            margin-top: 10px;
+            margin-left: 20px;
+        }
+
+    </style>
+    <script>
+        window.onload=function(){
+            var p = document.getElementById("photo");
+            var m =document.getElementById("msg");
+
+            var msgarr = ["아름다운 밤이에요~~","오늘은 비가 오네요","이제는 봄","내가 좋아하는 연예인"];
+            var mcolorarr = ["red","cyan","blue","magenta","orange","green","brown"]
+            
+
+            //3초마다 연예인사진이 바뀌게하기
+            setInterval(function(){
+
+                var s = parseInt(Math.random()*20)+1;
+
+                //이미지변경
+                p.setAttribute("src","../image/연예인사진/"+s+".jpg");
+            },3000);
+
+            //3초마다 메세지가 msgarr로 변하기
+         
+
+          /*  setInterval(function(){
+                var midx = parseInt(Math.random()*4);
+                var cidx = parseInt(Math.random()*6);
+
+                m.style.color=mcolorarr[cidx];
+                m.innerHTML=msgarr[midx];
+            },1000)
+            */      
+
+            //화살표 함수
+            setInterval(()=>{
+                var midx = parseInt(Math.random()*4);
+                var cidx = parseInt(Math.random()*6);
+
+                m.style.color=mcolorarr[cidx];
+                m.innerHTML=msgarr[midx];
+
+            },3000)
+        }
+    </script>
+</head>
+<body>
+    <img src="../image/연예인사진/15.jpg" id="photo">
+    <div class="msg">메세지출력...</div>
+
+</body>
+</html>

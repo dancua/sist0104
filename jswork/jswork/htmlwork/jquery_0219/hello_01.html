@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <title>Document</title>
+    <script>
+        //jquery사용시 window.onload에 해당 거의사용안함
+        /*
+        $(document).ready(function(){
+
+        })
+        */
+       $(function(){
+
+        //css: 스타일변경,반환
+
+        //방법1.
+        $("#good").css("color","red");
+        $("#good").css("background-color","yellow");
+
+        //방법2
+        $("#good").css("color","blue")
+       })
+
+       //#good의 배경색으로 div.hello의 배경색으로 적용
+       // var goodbg=$("#good").css("background-color");
+       //$("div.hello").css("background-color",goodbg);
+
+       //한줄로
+       $("div.hello").css("color",$("#good").css(background-color));
+
+       //body태그아래 모든태그 글꼴 변경
+       $("body").css("font-family","Dongle").css("font-size","30px");
+
+       //bts div  속성,위치
+       $("div.bts").css({
+           "position":"absolute",
+           "left":"300px",
+           "top":"200px",
+            "width":"300px",
+            "height":"150px",
+            "border":"10px inset gold" 
+       })
+
+       //모든 b태그 글자색변경
+       $("b").css("color","magenta");
+
+       //b태그중에서 1번 2번 3번 인덱스만 변경
+       $("b:eq(1)").css("background-color","orange");
+       $("b").eq(2).css("background-color","orange");
+
+       //전체 b태그중 첫번째 마지막 border변경
+       $("b:first").css("border","4px solod red");
+       $("b:last").css("border","4px dotted")
+
+       //gt(3) 3번이후 lt(3) 3번이전
+       $("b:gt(1)").css("font-size","50px");
+       $("b:lt(2)").css("background-color","gray");
+
+       //첫번째 이미지 width 200으로 변경
+       $("div.bts>div>img").css("width","200px");
+    
+    </script>
+</head>
+<body>
+    <h2 id="good">h2 id good</h2>
+    <h3 class="good2">h3 class good</h3>
+
+    <div class="hello">
+        div class hello
+        <div>
+            div hello 아래 div
+        </div>
+    </div>
+
+    <div class="bts">
+        <b>div bts 아래 b태그</b>
+        <span>div bts아래 span태그</span>
+        <div>div bts 아래 div</div>
+        <img src="../image/logoImg/a03.png">
+    </div>
+    
+    <div class="hello">
+        div 2번째 hello 
+        <img src="../image/Food/1.jpg">
+        <div>div hello 아래 div태그</div>
+    </div>
+
+    <b>단독 b태그#1</b><b>단독 b태그#2</b><b>단독 b태그#3</b>
+</body>
+</html>
