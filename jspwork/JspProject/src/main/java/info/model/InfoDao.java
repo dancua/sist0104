@@ -53,7 +53,7 @@ public class InfoDao {
 				//여러개의 데이타 얻을땐 while
 				while(rs.next())
 				{
-					InfoDto dto=new InfoDto();
+					InfoDto dto=new InfoDto();	
 					
 					dto.setNum(rs.getString("num"));
 					dto.setName(rs.getString("name"));

@@ -10,6 +10,48 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<div style="margin: 50px 100px;">
+    <form action="insertAction.jsp" method="post">
+        <table class="table table-bordered" style="width: 350px;">
+           <tr>
+             <th class="table-success" width="80">이름</th>
+             <td>
+               <input type="text" name="name" placeholder="이름"
+               required="required" class="form-control" style="width: 120px;">
+             </td>
+           </tr>
+           
+           <tr>
+             <th class="table-success" width="80">나이</th>
+             <td>
+               <input type="text" name="age" placeholder="나이"
+               required="required" class="form-control" style="width: 250px;">
+             </td>
+           </tr>
+            <tr>
+             <th class="table-success" width="80">핸드폰</th>
+             <td>
+               <input type="text" name="hp" placeholder="핸드폰"
+               required="required" class="form-control" style="width: 250px;">
+             </td>
+           </tr>
+            <tr>
+             <th class="table-success" width="100">운전면허</th>
+             <td>
+             <input type="checkbox" name="drive" value="있음">있음<br>
+             <input type="checkbox" name="drive" value="없음">없음<br>
+             </td>
+           </tr>
+           
+           <tr>
+             <td colspan="2" align="center">
+               <input type="submit" value="전송" class="btn btn-outline-success">
+               <input type="button" value="목록" class="btn btn-outline-warning"
+               onclick="location.href='quizList.jsp'">
+             </td>
+           </tr>
+        </table>
+    </form>
+</div>
 </body>
 </html>

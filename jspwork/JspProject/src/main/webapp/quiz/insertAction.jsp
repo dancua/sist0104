@@ -1,3 +1,5 @@
+<%@page import="quiz.model.quizDao"%>
+<%@page import="quiz.model.quizDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -10,6 +12,26 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+		request.setCharacterEncoding("utf-8");
+
+		String name = request.getParameter("name");
+		String age = request.getParameter("age");
+		String hp = request.getParameter("hp");
+		String drive = request.getParameter("drive");
+		
+		quizDto dto = new quizDto();
+		
+		dto.setName(name);
+		dto.setAge(age);
+		dto.setHp(hp);
+		dto.setDriver(drive);
+		
+		quizDao dao = new quizDao();
+		dao.infoInsert(dto);
+		
+		response.sendRedirect("quizList.jsp");
+%>
 
 </body>
 </html>
