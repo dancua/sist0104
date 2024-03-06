@@ -1,13 +1,14 @@
-package info.model;
+package team.model;
 
 import java.sql.Timestamp;
 
-public class InfoDto {
+public class TeamDTO {
 
 	private String num;
 	private String name;
+	private String driver;
 	private String addr;
-	private Timestamp sdate;
+	private Timestamp writeday;
 
 	public String getNum() {
 		return num;
@@ -25,6 +26,14 @@ public class InfoDto {
 		this.name = name;
 	}
 
+	public String getDriver() {
+		return driver;
+	}
+
+	public void setDriver(String driver) {
+		this.driver = driver;
+	}
+
 	public String getAddr() {
 		return addr;
 	}
@@ -33,12 +42,12 @@ public class InfoDto {
 		this.addr = addr;
 	}
 
-	public Timestamp getSdate() {
-		return sdate;
+	public Timestamp getWriteday() {
+		return writeday;
 	}
 
-	public void setSdate(Timestamp sdate) {
-		this.sdate = sdate;
+	public void setWriteday(Timestamp writeday) {
+		this.writeday = writeday;
 	}
 
 }
