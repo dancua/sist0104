@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-
   div.hello{
     position: absolute;
     border: 0px solid gray;
@@ -43,13 +42,22 @@
   }
   
   div.list{
-    left: 800px;
+    left: 600px;
     top: 100px;
     width: 600px;
     height: 1000px;
     padding: 20px 20px;
-    
   }
+  
+  div.list button{
+  	 left: 80px;
+     top: 30px;
+     width: 400px;
+     height: 100px;
+     line-height: 100px;
+     text-align: center;
+  }
+  
   span.writer{
      font-weight: bold;
   }
@@ -64,10 +72,10 @@
 <script type="text/javascript">
   $(function(){
 	  
-	  list()
+	  list();
 	  
 	  //처음에 추가폼 없는상태로
-	  $("div.addform").hide();
+	   $("div.addform").hide();
 	  
 	  //버튼누르면 추가폼 나오고 사라지게
 	  $("#btnadd").click(function(){
@@ -90,7 +98,7 @@
 	  //추가폼 저장
 	  $("#dbSave").click(function(){
 		  
-		   var data=$("#addfrm").serialize();
+	   var data=$("#addfrm").serialize();
 		   //alert(data);
 		   
 		   $.ajax({
@@ -112,8 +120,7 @@
 					$("#avata").val($("img.avata").eq(2).attr("src"));
 			   }
 		   })
-	  });
-	  
+	  });  
   })
   
   
@@ -190,7 +197,7 @@
                     		s+="<br>";
                     }
                     
-                    document.write(s);
+                   document.write(s);
                   </script>
                </td>
              </tr>
@@ -205,6 +212,10 @@
      </form>
   </div>
   
-  <div class="hello list">list</div>
+  <div class="hello list">
+  <button type="button" id="btnup">수정</button>
+  </div>
+  
+  </div>
 </body>
 </html>
