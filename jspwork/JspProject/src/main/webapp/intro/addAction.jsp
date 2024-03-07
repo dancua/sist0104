@@ -16,8 +16,29 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%
+String msg = "안녕 오늘은,기분좋은,목요일입니다.";
 
-	<%
+msg.subSequence(0,msg.length()-1);
+System.out.print(msg+"\n");
+%>
+<%-- 
+<jsp:useBean id="dao" class="intro.model.interDTO">
+<jsp:useBean id="dto" class="intro.model.introDAO">
+<jsp:setProperty porperty="*" name="dto">
+
+if(hobby==null)
+myhobby="no";
+
+else{
+	for(int i = 0; i<hobby.lengthl i++){
+	myhobby+=hobby[i]+",";
+	}
+	myhobby = myhobby.substring(0,myhobby
+
+
+ --%>	
+ <%
 	request.setCharacterEncoding("utf-8");
 	
 	String name = request.getParameter("name");
