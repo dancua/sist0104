@@ -81,7 +81,7 @@ introDTO dto = new introDTO();
 				<th >성격</th>
 				<td>
 				<textarea style="width:500px; height:100px;" name="memo" placeholder="자유롭게 서술하세요"
-				class= "form-control" value="<%=dto.getMemo()%>"></textarea>
+				class="form-control" name="memo"><%=dto.getMemo() %></textarea>
 				</td>
 				</tr>
 				
