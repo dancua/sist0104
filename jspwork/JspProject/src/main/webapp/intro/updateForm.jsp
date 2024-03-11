@@ -18,7 +18,8 @@
 <%
 String num = request.getParameter("num");
 introDAO dao = new introDAO();
-introDTO dto = new introDTO();
+introDTO dto = dao.getOneData(num);
+
 
 %>
 <body>
