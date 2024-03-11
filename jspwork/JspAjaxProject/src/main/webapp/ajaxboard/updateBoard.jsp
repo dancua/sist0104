@@ -5,11 +5,11 @@
 
 
 <%
-String num = request.getParameter("num");
-String writer = request.getParameter("writer");
-String subject = request.getParameter("subject");
-String content = request.getParameter("content");
-String avata = request.getParameter("avata");
+String num = request.getParameter("unum");
+String writer = request.getParameter("uwriter");
+String subject = request.getParameter("usubject");
+String content = request.getParameter("ucontent");
+String avata = request.getParameter("uavata");
 
 ajaxDAO dao = new ajaxDAO();
 

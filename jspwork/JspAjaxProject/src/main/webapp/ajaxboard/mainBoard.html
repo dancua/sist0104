@@ -169,7 +169,13 @@ div.detail button{
 			  data:{"num":num},
 			  success:function(data){
 				  
-				 
+				  
+				  $("#unum").val(data.num);
+				  $("#uwriter").val(data.writer);
+				  $("#usubject").val(data.subject);
+				  $("#ucontent").val(data.content);
+				  $("#uavata").val(data.avata);
+				  
 				  
 				  
 			  }
