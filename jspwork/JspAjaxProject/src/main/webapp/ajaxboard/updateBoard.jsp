@@ -5,6 +5,9 @@
 
 
 <%
+
+request.setCharacterEncoding("utf-8");
+
 String num = request.getParameter("unum");
 String writer = request.getParameter("uwriter");
 String subject = request.getParameter("usubject");

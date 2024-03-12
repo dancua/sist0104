@@ -135,15 +135,15 @@ public class ajaxDAO {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 		
-		String sql = "update ajaxboard set writer = ?, subject = ?, content = ?,avata = ? where num =?";
+		String sql = "update ajaxboard set writer = ?, avata=?,subject=?,content=? where num =?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
 			
 			pstmt.setString(1,dto.getWriter());
-			pstmt.setString(2,dto.getSubject());
-			pstmt.setString(3,dto.getContent());
-			pstmt.setString(4, dto.getAvata());
+			pstmt.setString(2, dto.getAvata());
+			pstmt.setString(3,dto.getSubject());
+			pstmt.setString(4,dto.getContent());
 			pstmt.setString(5,dto.getNum());
 			
 			pstmt.execute();
