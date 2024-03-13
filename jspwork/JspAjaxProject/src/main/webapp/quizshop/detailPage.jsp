@@ -25,7 +25,8 @@ quizDTO dto = dao.getOneData(num);
 <p>상품명: <%=dto.getSang_name()%></p>
 <p>가격: <%=dto.getPrice() %></p>
 <p>입고일: <%=dto.getIpgoday() %></p>
-<button type="button" class="btn btn-info"  onclick="location.href='shopList.jsp'">돌아가기</button>
+
+
 </div>
 
 </div>
