@@ -14,19 +14,22 @@
 <title>Insert title here</title>
 </head>
  <style>
-  .album {
-    display: flex;
+.album {
+	display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: flex-start;
+    position:absolute;
+
 }
 .photo {
     margin: 10px;
     text-align: center;
     border: 1px solid #ccc;
-    padding: 10px;
-    
+    padding: 20px;
 }
-    </style>
+
+
+</style>
 <body>
 <%
 String num = request.getParameter("num");
@@ -39,19 +42,20 @@ SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 <h6 class="alert alert-info">
 			총<%=list.size()%>개의 게시글이 있습니다.
 		</h6>
+		<button type="button" class="btn btn-info" onclick="location.href='boardList.jsp'">게시글 목록</button>
 <div class="album">
 <%
 for( int i = 0; i< list.size(); i++){
 	upDTO dto = list.get(i);
 %>
-<div class="photo">
-<img alt="" src="../save/<%=dto.getImgname() %>">
-<div>제목: <%=dto.getSubject() %> </div><br>
-<div>작성자: <%=dto.getWriter() %> </div><br>
-<div>작성일: <%=sdf.format(dto.getWriteday()) %></div><br>
-<div>조회수: <%=dto.getReadcount() %> </div><br>
-</div>
-<% } %>
+ <div class="photo">
+        <img alt="" src="../save/<%=dto.getImgname() %>">
+        <div>제목: <%=dto.getSubject() %></div>
+        <div>작성자: <%=dto.getWriter() %></div>
+        <div>작성일: <%=sdf.format(dto.getWriteday()) %></div>
+        <div>조회수: <%=dto.getReadcount() %></div>
+    </div>
+    <% } %>
 </div>
 </body>
 </html>
