@@ -84,7 +84,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 %>
 <body>
 <div style="margin: 50px 100px; width: 800px;">
-  <button type="button" class="btn btn-outline-info" onclick="location.href='addform.jsp'"
+  <button type="button" class="btn btn-outline-info" onclick="location.href='addForm.jsp'"
   style="margin-left: 650px;">
   <i class="bi bi-pencil"></i>글쓰기</button>
   <br>
@@ -116,7 +116,7 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
     		  <tr>
     		    <td align="center"><%=no--%></td>
     		    <td>
-    		      <a href="contentview.jsp?num=<%=dto.getNum()%>">
+    		      <a href="contentView.jsp?num=<%=dto.getNum()%>">
     		       <%=dto.getSubject() %>
     		      </a>
     		    </td>
@@ -165,10 +165,6 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
   %>
   
   </ul>
-  
-  
-  
-  
 </div>
 
 </body>

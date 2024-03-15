@@ -110,6 +110,83 @@ public class simDAO {
 		}
 		return dto;
 	}
+	
+	public boolean isEquals(String num, String pass) {
+		
+		boolean flag = false;
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count(*) from simpleboard where num =? and pass = ? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, num);
+			pstmt.setString(2,pass);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				if(rs.getInt(1)==1)
+					flag= true;
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+			
+		}
+		
+		return flag;
+	}
+	
+	public void delete(String num) {
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from simpleboard where num =? ";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1,num);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+			
+		}
+	}
+	
+	 public void update(simDTO dto) {
+		 
+		 Connection  conn = db.getConnection();
+		 PreparedStatement pstmt = null;
+		 
+		 String sql = "update simpleboard set writer = ?,subject=?,content=? where num =?";
+		 
+		 try {
+			pstmt= conn.prepareStatement(sql);
+			
+			pstmt.setString(1,dto.getWriter());
+			pstmt.setString(2,dto.getContent());
+			pstmt.setString(3,dto.getNum());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+			
+		}
+		 
+	 }
+	
 	public void updateReadCount(String num) {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;

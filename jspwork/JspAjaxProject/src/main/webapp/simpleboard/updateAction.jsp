@@ -1,4 +1,3 @@
-<%@page import="simple.model.simDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -12,24 +11,17 @@
 </head>
 <body>
 <%
-String num = request.getParameter("num");
-String pass = request.getParameter("pass");
-
-simDAO dao = new simDAO();
-
-boolean b = dao.isEquals(num, pass);
-
-//true면 updateform으로 이동 
-//false면 경고후 돌아감
-if(b){
-	response.sendRedirect("updateForm.jsp?num="+num);
-}else{%>
-<script type="text/javascript">
-alert("비밀번호가 맞지않습니다.");
-history.back();
-
-</script>
-<%}
+request.setCharacterEncoding("utf-8");
 %>
+<jsp:useBean id="dao" class="simple.model.simDAO"/>
+<jsp:useBean id="dto" class="simple.model.simDTO"/>
+<jsp:setProperty property="*" name="dto"/>
+
+<%
+dao.update(dto);
+
+response.sendRedirect("contentView.jsp?num="+dto.getNum());
+%>
+
 </body>
 </html>
