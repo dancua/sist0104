@@ -106,6 +106,8 @@ $(function(){
 
 function list()
 {	
+	
+	
 	$.ajax({
 	
 		type:"get",
