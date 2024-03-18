@@ -1,3 +1,5 @@
+<%@page import="simpleanswer.model.simaDTO"%>
+<%@page import="simpleanswer.model.simaDAO"%>
 <%@page import="simple.model.simDTO"%>
 <%@page import="simple.model.simDAO"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -81,6 +83,17 @@ List<simDTO>list=dao.getPaging(startNum, perPage);
 //List<SimpleBoardDto>list=dao.getAllDatas();
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //int count=list.size();
+
+//list의 각 dto에 댓글개수 저장해두기
+simaDAO adao = new simaDAO();
+
+for(simDTO dto:list)
+{
+	//댓글변수에 댓글 총개수 넣기
+	int acount=adao.getAllDatas(dto.getNum()).size();
+	dto.setAnswercount(acount);
+}
+
 %>
 <body>
 <div style="margin: 50px 100px; width: 800px;">
@@ -119,6 +132,13 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
     		      <a href="contentView.jsp?num=<%=dto.getNum()%>">
     		       <%=dto.getSubject() %>
     		      </a>
+    		      <!-- 댓글개수 -->
+    		      <%
+    		      if(dto.getAnswercount()>0)
+    		      {%>
+    		    	<a href="contentView.jsp?num=<%=dto.getNum()%>#alist" style="color: red"></a>  
+    		      <%}
+    		      %>
     		    </td>
     		    <td align="center"><%=dto.getWriter() %></td>
     		    <td align="center"><%=sdf.format(dto.getWriteday()) %></td>
