@@ -177,6 +177,7 @@ public class simDAO {
 			pstmt.setString(1,dto.getWriter());
 			pstmt.setString(2,dto.getContent());
 			pstmt.setString(3,dto.getNum());
+			pstmt.execute();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

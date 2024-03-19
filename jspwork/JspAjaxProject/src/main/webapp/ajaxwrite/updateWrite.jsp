@@ -1,4 +1,3 @@
-<%@page import="memgaip.model.MemDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -11,28 +10,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-<%
-request.setCharacterEncoding("utf-8");
-
-String m_num = request.getParameter("m_num");
-String m_pass = request.getParameter("m_pass");
-
-MemDAO dao = new MemDAO();
-
-boolean a = dao.isEquals(m_num ,m_pass);
-
-if(a){
-	dao.deleteMem(m_num);
-	response.sendRedirect("memList.jsp");
-
-	}else{%>
-	 <script type="text/javascript">
-	alert("비밀번호가 맞지않습니다.");
-	history.back();
-	</script>
-	<%}
-%>
 
 </body>
 </html>

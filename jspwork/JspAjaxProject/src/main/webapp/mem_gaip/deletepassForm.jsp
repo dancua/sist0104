@@ -13,22 +13,22 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 <%
-	String num = request.getParameter("m_num");
+	String m_num = request.getParameter("m_num");
 
 %>
 </head>
 <body>
 	<div style="margin:200px 200px; width:300px;">
 		<form action="deletepassAction.jsp" method="post">
-		<input type="hidden" name="num" value="<%=num %>">
+		<input type="hidden" name="m_num" value="<%=m_num %>">
 			<div class="d-inline-flex">
 				<h6 style="width: 100px;">비밀번호</h6>
-				<input type="password" class="form control" required="required"
-					name="pass" style="width: 150px;">
+				<input type="text" class="form control" required="required"
+					name="m_pass" style="width: 150px;" >
 			</div>
 			<br><br>
 			<button type="submit" class="btn btn-danger"
-			style="margin-left:100px;">삭제</button>
+			>삭제시 필요한 비밀번호 확인</button>
 		</form>
 	</div>
 </body>

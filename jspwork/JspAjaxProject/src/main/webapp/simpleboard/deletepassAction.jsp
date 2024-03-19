@@ -1,4 +1,3 @@
-<%@page import="simple.model.simDTO"%>
 <%@page import="simple.model.simDAO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

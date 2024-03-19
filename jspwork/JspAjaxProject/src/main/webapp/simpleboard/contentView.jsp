@@ -268,13 +268,13 @@
      <tr>
        <td align="center">
          <button type="button" class="btn btn-outline-info btn-sm"
-         onclick="location.href='addform.jsp'"><i class="bi bi-pencil"></i>글쓰기</button>
+         onclick="location.href='addForm.jsp'"><i class="bi bi-pencil"></i>글쓰기</button>
          <button type="button" class="btn btn-outline-success btn-sm"
-         onclick="location.href='boardlist.jsp'"><i class="bi bi-list-check"></i>목록</button>
+         onclick="location.href='boardList.jsp'"><i class="bi bi-list-check"></i>목록</button>
          <button type="button" class="btn btn-outline-primary btn-sm"
-         onclick="location.href='updatepassform.jsp?num=<%=dto.getNum()%>'"><i class="bi bi-pencil-square"></i>수정</button>
+         onclick="location.href='updatepassForm.jsp?num=<%=dto.getNum()%>'"><i class="bi bi-pencil-square"></i>수정</button>
          <button type="button" class="btn btn-outline-danger btn-sm"
-         onclick="location.href='deletepassform.jsp?num=<%=dto.getNum()%>'"><i class="bi bi-trash"></i>삭제</button>
+         onclick="location.href='deletepassForm.jsp?num=<%=dto.getNum()%>'"><i class="bi bi-trash"></i>삭제</button>
        </td>
      </tr>
   </table>

@@ -128,7 +128,7 @@ public class MemDAO {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "SELECT COUNT(*) FROM memgaip WHERE m_num = ? AND m_pass = ?";
+		String sql = "SELECT count(*) from memgaip WHERE m_num = ? AND m_pass = ?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -147,5 +147,61 @@ public class MemDAO {
 			db.dbClose(rs, pstmt, conn);
 		}
 		return a;
+	}
+	
+	public void update(MemDTO dto) {
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "update memgaip set m_name=? ,m_hp=?, m_photo =? where m_num =?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, dto.getM_name());
+			pstmt.setString(2, dto.getM_hp());
+			pstmt.setString(3, dto.getM_photo());
+			pstmt.setString(4,dto.getM_num());
+		
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
+	
+	public MemDTO getData(String m_num) {
+		
+		MemDTO dto = new MemDTO();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from memgaip where m_num=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, m_num);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setM_num(rs.getString("m_num"));
+				dto.setM_id(rs.getString("m_id"));
+				dto.setM_hp(rs.getString("m_hp"));
+				dto.setM_name(rs.getString("m_name"));
+				dto.setM_photo(rs.getString("m_photo"));
+				dto.setGaipday(rs.getTimestamp("gaipday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);	
+		}
+		return dto;
 	}
 }

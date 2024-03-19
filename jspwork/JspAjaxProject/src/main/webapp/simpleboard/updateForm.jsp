@@ -19,8 +19,8 @@
 String num = request.getParameter("num");
 simDAO dao = new simDAO();
 simDTO dto = dao.getContent(num);
-
 %>
+
 <body>
 	<div style="margin: 50px 100px; width: 500px;">
 		<form action="addAction.jsp" method="post">
