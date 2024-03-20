@@ -88,15 +88,14 @@ $(function(){
 		$("div.addform").show();
 	})
 	
-	
-	
-	
 	//db추가버튼
 	$("#btninsert").click(function(){
 		
-		/* var data=$("#addfrm").serialize();
-		alert(data); */
-		var writer=$("#writer").val();
+		 var data=$("#addfrm").serialize();
+		alert(data); 
+		
+		
+	    var writer=$("#writer").val();
 		var subject=$("#subject").val();
 		var story=$("#story").val();
 		var image=$("#image").val();
@@ -124,7 +123,7 @@ $(function(){
 				$("div.addform").hide();
 				$("div.list").show();
 			}
-		})
+		}) 
 	})
 	
 	//제목클릭시 이벤트
@@ -152,45 +151,37 @@ $(function(){
 		})
 	})
 	
+	$(document).on("click",".updatebtn",function(){
+		
+		 var num = $(this).attr("num");
+		 alert(num);
+		
+		
+	})
+	
 	// 최종 수정버튼
 	$("#btnupdate").click(function(){
 		
 		$.ajax({
-			type:"post",
-			dataType:"json",
-			url:"updateWrite.jsp",
-			success:function(res){
-				
-				list();
-				
-				$("div.updateform").hide();
-				
-				$("div.list").show();
-			
-				
-			}
-		})
-		
-			
-	})
-	
-		$(document).on("click",".updatebtn",function(){
-		$("div.updateform").show();
-		$("div.detailview").hide();
-		
-		$.ajax({
 			type:"get",
 			dataType:"json",
-			
-			
+			data:{"num":num},
+			url:"updateWrite.jsp",
+			success:function(){
+				
+				$("#unum").val(data.num);
+				$("#uwriter").val(data.writer);
+				$("#usubject").val(data.subject);
+				$("#ustory").val(data.content);
+				$("#uimage").val(data.avata);
+				
+				$("div.updateform").show();
+				$("div.detailview").hide();	
+			}
 		})
-	
-			$("#uwriter").val();
-		var subject=$("#usubject").val();
-		var story=$("#ustory").val();
-		var image=$("#uimage").val();
-		
 	})
+	
+		
 })
 
 function list()
@@ -303,9 +294,10 @@ function list()
   
   
   
-  
+  <!-- 수정폼 -->
   <div class="board updateform" style=" width: 400px;">
      <form id="updatefrm">
+     <input type="hidden" name="unum" id="unum">
        <table class="table table-bordered">
          <caption align="top"><b>수정하기</b></caption>
          <tr>
