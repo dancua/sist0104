@@ -29,8 +29,13 @@ a:hover {
 }
 
 body *{
-   font-family: 'Noto Serif KR';
+   font-family: 'Noto Sans KR';
    font-size: 11pt;
+}
+
+.img{
+
+float:left;
 }
 </style>
 </head>
@@ -83,13 +88,10 @@ List<GuestDto>list=dao.getList(startNum, perPage);
 //List<SimpleBoardDto>list=dao.getAllDatas();
 SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 //int count=list.size();
-%>
-<%
-   //로그인상태확인
-   String loginok=(String)session.getAttribute("loginok");
 
+ //로그인상태확인
+ String loginok=(String)session.getAttribute("loginok");
 %>
-
 <%
   if(loginok!=null){
 	  %>
@@ -97,19 +99,31 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	  <hr width="700" align="left" style="margin-left: 100px;">
   <%}
 %>
+
+
 <div style="margin: 50px 100px; width: 800px;">
-  <br>
+
    <h6><b>총<%=totalCount %>개의 글이 있습니다</b></h6>
   <table class="table table-bordered">
     <caption align="top"><b>방명록</b></caption>
-    <tr class="table-light">
-      <th width="80">번호</th>
-      <th width="350">제목</th>
-      <th width="180">작성자</th>
-      <th width="180">작성일</th>
-      <th width="100">조회</th>
-    </tr>
-
+    <%
+    for(GuestDto dto:list)
+    {%>
+   <tr>
+       <td>
+         <b><%=dto.getMyid() %></b><br>
+         <span class="day"><%=sdf.format(dto.getWriteday())%></span>
+         &nbsp;&nbsp;&nbsp;&nbsp;조회: <%=dto.getChu() %>
+       </td>
+     </tr>
+     <tr height="200">
+       <td>
+       	 <img src="../image2/만화이미지/<%=dto.getPhotoname() %>">
+         <%=dto.getContent().replace("\n", "<br>") %>
+       </td>
+     </tr>
+     <%}
+    %>
  <%
       if(totalCount==0)
       {%>
@@ -123,13 +137,13 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
     	  {
     		  GuestDto dto=list.get(i);
     		  %>
-    		  
-    		  <tr>
-    		    <td align="center"><%=no--%></td>
     		    <%}
       }
     		    %>
   </table>
+  
+  
+  
   
   <!-- 페이지 번호 출력 -->
   <ul class="pagination justify-content-center">
@@ -160,14 +174,13 @@ SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm");
     if(endPage<totalPage)
     {%>
     	<li class="page-item">
-    		<a  class="page-link" href="guestList.jsp?currentPage=<%=endPage+1%>"
+    		<a  class="page-link" href="index.jsp?main=memberguest/guestList.jsp?currentPage=<%=endPage+1%>"
     		style="color: black;">다음</a>
     	</li>
     <%}
     	  
   %>
-  
-  </ul>
+</ul>
 </div>
 </body>
 </html>

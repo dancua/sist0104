@@ -4,10 +4,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
 import data.dto.GuestDto;
+import data.dto.MemberDto;
 import mysql_db.DbConnect;
 
 public class GuestDao {
@@ -34,6 +36,45 @@ public class GuestDao {
 			db.dbClose(pstmt, conn);
 			
 		}
+	}
+	//전체 리스트 출력
+	public List<GuestDto> getAllDatas(){
+		ArrayList<GuestDto> list = new ArrayList<GuestDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from memberguest order by num";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				GuestDto dto = new GuestDto();
+				
+			dto.setNum(rs.getString("num"));
+			dto.setMyid(rs.getString("myid"));
+			dto.setContent(rs.getString("content"));
+			dto.setPhotoname(rs.getString("photoname"));
+			dto.setChu(rs.getInt("chu"));
+			dto.setWriteday(rs.getTimestamp("writeday"));
+			
+			list.add(dto);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+			
+		}
+		
+		return list;
+		
 	}
 	//페이징
 	//전체 개수
