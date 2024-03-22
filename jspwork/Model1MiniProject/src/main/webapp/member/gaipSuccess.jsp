@@ -13,18 +13,24 @@
 </head>
 <%
 request.setCharacterEncoding("utf-8");
-
-String name = request.getParameter("name");
+String id = request.getParameter("id");
 
 MemberDao dao = new MemberDao();
 
+String name = dao.getName(id);
+
 %>
 <body>
+<div style="margin:100px 250px;">
+<img alt="" src="image2/logoImg/a.png">
 <h2><%=name%>님의 회원가입을 축하드립니다!</h2>
-<img alt="" src="../image2/logoImg/a.png">
+<br><br>
+<button type="button" class="btn btn-info" 
+onclick="location.href='index.jsp?main=login/loginMain.jsp'">로그인</button>
+<button type="button" class="btn btn-info" 
+onclick="location.href='index.jsp'">마이페이지</button>
+</div>
 
-<button type="button" class="btn btn-outline-info"
-style="width:100px;" onclick="location.href='../index.jsp'">Home</button>
 <!-- 회원가입이 성공되면 gaipSuccess 페이지로 간다
 dao 하나 만들면 id 보내서
 name 리턴 받는 김연아 님의 회원가입이 성공되었습니다.

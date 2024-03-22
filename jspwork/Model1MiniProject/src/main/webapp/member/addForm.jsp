@@ -22,7 +22,7 @@ $(function(){
 		
 		  $.ajax({
 			type:"get",
-			url:"idCheck.jsp",
+			url:"member/idCheck.jsp",
 			dataType:"json",
 			data:{"id":id},
 			success:function(res){
@@ -70,7 +70,7 @@ function check(f)
 </head>
 <body>
 	<div style="margin: 100px 100px; width: 500px;">
-		<form action="addAction.jsp" method="post" onsubmit="return check(this)">
+		<form action="member/addAction.jsp" method="post" onsubmit="return check(this)">
 			<table class="table table-bordered" style="width: 500px;">
 				<caption align="top">
 					<b>회원가입</b>

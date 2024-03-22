@@ -13,6 +13,8 @@
 <%
 request.setCharacterEncoding("utf-8");
 String email = request.getParameter("email1")+"@"+request.getParameter("email2");
+String id = request.getParameter("id");
+String name= request.getParameter("name");
 %>
 <jsp:useBean id="dao" class="data.dao.MemberDao"/>
 <jsp:useBean id="dto" class="data.dto.MemberDto"/>
@@ -22,8 +24,9 @@ dto.setEmail(email);
 dao.insertMember(dto);
 
 //일단 리스트...   가입성공페이지로 바꿀예정
-response.sendRedirect("gaipSuccess.jsp");
-//response.sendRedirect("../index.jsp?main=member/memberList.jsp");
+//response.sendRedirect("gaipSuccess.jsp");
+response.sendRedirect("../index.jsp?main=member/gaipSuccess.jsp?id="+id);
+
 %>
 
 </body>

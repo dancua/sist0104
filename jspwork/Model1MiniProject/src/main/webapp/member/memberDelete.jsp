@@ -10,22 +10,17 @@
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
 <title>Insert title here</title>
 </head>
-<body>
-<div style="margin:100px 200px;">
-<img alt="" src="image/K-060.png">
-
 <%
-String myid = (String)session.getAttribute("myid");
+String num = request.getParameter("num");
+
 MemberDao dao = new MemberDao();
-String name= dao.getName(myid);
+
+dao.delete(num);
+
+response.sendRedirect("../index.jsp?main=member/memberList.jsp");
 
 %>
+<body>
 
-<br><br>
-
-<b><%=name %>님 로그인중</b><br><br>
-<button type="button" class="btn btn-danger"
-onclick="location.href='login/logoutAction.jsp'">로그아웃</button>
-</div>
 </body>
 </html>

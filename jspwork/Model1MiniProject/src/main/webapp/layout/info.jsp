@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div style="font-size: 10pt line-height: 25px;">
+<div style="font-size: 10pt line-height: 20px;">
 <i class="bi bi-person-circle"></i>주식회사 메종<br>
 <i class="bi bi-telephone-inbound"></i>01-1256-8598<br>
 <i class="bi bi-house-add"></i>서울시 강남구 134 메종<br>

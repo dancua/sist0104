@@ -5,6 +5,7 @@
 <head>
 <%
 String root = request.getContextPath();
+
 %>
 <meta charset="UTF-8">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -20,10 +21,16 @@ String root = request.getContextPath();
 <style type="text/css">
 
 div.id{
-float:"center";
+float:"left";
 }
 
 </style>
+<%
+String myid = (String)session.getAttribute("myid");
+String loginok = (String)session.getAttribute("loginok");
+
+
+%>
 <body>
 <%-- a href="<%=root %>/">메인</a>&nbsp;&nbsp;&nbsp;
 <a href="<%=root %>/">로그인</a>&nbsp;&nbsp;&nbsp;
@@ -43,24 +50,32 @@ float:"center";
 					<li class="parent">
 						<a href="#">게시판</a>
 						<ul class="sub-menu">
-							<li><a href="#"></i> 고객게시판</a></li>
+							<li><a href="index.jsp?main=memberguest/guestForm.jsp"></i> 고객게시판</a></li>
 							<li><a href="#"><i class="icon-credit-card"></i>이미지 게시판</a></li>
 							<li><a href="#"><i class="icon-gift"></i>스마트 게시판</a></li>
 
 						</ul>
 					</li>
-					<li><a href="#">로그인</a>
+					<li><a href="#">회원</a>
 					<ul class="sub-menu">
 							<li><a href="index.jsp?main=member/addForm.jsp">회원가입</a></li>
-							<li><a href="#"><i class="icon-credit-card"></i>회원목록</a></li>
-							<li><a href="#"><i class="icon-gift"></i>마이페이지</a></li>
+							<%
+							if(loginok!=null && myid.equals("admin")){%>
+								<li><a href="index.jsp?main=member/memberList.jsp"><i class="icon-credit-card"></i>회원목록</a></li>
+							<%}
+							%>	 
+							
+							
+
+							<li><a href="index.jsp?main=member/mypage.jsp"><i class="icon-gift"></i>마이페이지</a></li>
+							<li><a href="index.jsp?main=login/loginForm.jsp">로그인</a></li>
 
 						</ul>
 					</li>
 					<li class="parent">
 						<a href="#">방명록</a>
 						<ul class="sub-menu">
-							<li><a href="#">회원방명록</a></li>
+							<li><a href="index.jsp?main=memberguest/guestList.jsp">회원방명록</a></li>
 							<li><a href="#">Medium Image</a></li>
 						</ul>
 					</li>
