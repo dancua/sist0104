@@ -1,5 +1,5 @@
-<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@page import="com.oreilly.servlet.multipart.DefaultFileRenamePolicy"%>
+<%@page import="com.oreilly.servlet.MultipartRequest"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -28,7 +28,7 @@
 	MultipartRequest multi = null;
 
 	try{
-	multi = new MultipartRequest(request, realFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
+	multi = new  MultipartRequest(request, realFolder, fileSize, "utf-8", new DefaultFileRenamePolicy());
 
 	String name = multi.getParameter("name");
 	String subject = multi.getParameter("subject");
