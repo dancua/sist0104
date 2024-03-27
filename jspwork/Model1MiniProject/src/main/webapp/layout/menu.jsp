@@ -52,7 +52,7 @@ String loginok = (String)session.getAttribute("loginok");
 						<ul class="sub-menu">
 							<li><a href="index.jsp?main=memberguest/guestForm.jsp"></i> 고객게시판</a></li>
 							<li><a href="#"><i class="icon-credit-card"></i>이미지 게시판</a></li>
-							<li><a href="#"><i class="icon-gift"></i>스마트 게시판</a></li>
+							<li><a href="index.jsp?main=smartboard/boardList.jsp"><i class="icon-gift"></i>스마트 게시판</a></li>
 
 						</ul>
 					</li>

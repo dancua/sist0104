@@ -16,6 +16,8 @@ public class mainDao {
 		
 		String sql = "insert into main values(null,?,?,?,?,?,?,?,?,now())";
 		
+		
+		
 	}
 
 }

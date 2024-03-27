@@ -18,7 +18,7 @@
 
 			$.ajax({
 				type : "get",
-				url : "member/idCheck.jsp",
+				url : "idCheck.jsp",
 				dataType : "json",
 				data : {"id" : id},
 				success : function(res) {
@@ -42,6 +42,12 @@
 			}
 		});
 	})
+	
+	function validateForm(){
+		var id= document.getElementById('id').value;
+		var pass = document.getElementById('pass').value;
+		
+	}
 	
 	function check(f) {
 		if (f.pass.value != f.pass2.value) {
@@ -74,6 +80,7 @@
 						</div>
 					</td>
 				</tr>
+				
 				<tr>
 					<th width="100" class="table-success">비밀번호</th>
 					<td>
