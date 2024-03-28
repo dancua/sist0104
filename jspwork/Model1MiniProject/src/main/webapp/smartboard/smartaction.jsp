@@ -24,8 +24,7 @@ dao.insertSmart(dto);
 //response.sendRedirect("../index.jsp?main=smartboard/boardList.jsp");
 
 int num = dao.getMaxnum();
-response.sendRedirect("../index.jsp?main=smartboard/contentview.jsp?num="+num+"&currentPage="+currentPage);
-%>
+response.sendRedirect("../index.jsp?main=smartboard/contentview.jsp?num="+num+"&currentPage="+1);%>
 
 </body>
 </html>

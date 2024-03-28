@@ -10,6 +10,20 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form name='form_log' method='post'>
+                <div class="align">
+                    <input type="text" id="id" name = "id" placeholder="아이디 입력">
+                     <div class="text-id">
+                       
+                    </div> 
+                    <label></label>
+                    <input type="password" id="pass" name = "pass" placeholder="비밀번호 입력">
+                   <div class="text-id">
+                        
+                    </div> 
+                    <input type="submit" id="btnLogin" value="로그인">
+                </div>
+</form>
 
 </body>
 </html>

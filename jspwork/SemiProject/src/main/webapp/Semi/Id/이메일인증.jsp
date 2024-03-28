@@ -165,7 +165,7 @@
             // 20초
             let count = 20
 
-            timer.innerHTML = "00:20"
+            timer.innerHTML = "03:00"
             // 1초마다 실행
             timer_thread = setInterval(function () {
                 
